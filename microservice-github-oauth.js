@@ -173,7 +173,7 @@ function simpleRequest(requestUrl, callback) {
     port: 443,
     path: parsedURL.pathname + parsedURL.search,
     headers: {
-      Accept: application/json
+      Accept: 'application/json'
     }
   };
   debug.debug("Options %O parsedURL %O ", options, parsedURL);
