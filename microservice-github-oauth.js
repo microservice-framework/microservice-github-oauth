@@ -188,7 +188,10 @@ function simpleRequest(requestUrl, callback) {
       try {
         debug.debug("Data: %s", data);
         let answer = JSON.parse(data);
-        callback(null, data);
+        if(answer.error) {
+          return callback(new Error(answer.error));
+        }
+        callback(null, answer);
       } catch (e) {
         debug.debug("Parse error: %s, %s, %O", url, data, e);
         debug.log("request.error Failed to parse respond: %s", e);
