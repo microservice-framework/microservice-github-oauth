@@ -177,7 +177,7 @@ function simpleRequest(url, callback) {
         let answer = JSON.parse(data);
         callback(null, data);
       } catch (e) {
-        debug.debug("Parse error: %O %s", e, data);
+        debug.debug("Parse error: %s, %s, %O", url, data, e);
         debug.log("request.error Failed to parse respond: %s", e);
         callback(new Error('Failed to parse respond.'));
       }
