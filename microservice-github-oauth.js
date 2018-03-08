@@ -167,13 +167,21 @@ function getScope(callback) {
  */
 function simpleRequest(requestUrl, callback) {
   const parsedURL = url.parse(requestUrl);
+  let path = '';
+  if(parsedURL.pathname) {
+    path= path + parsedURL.pathname;
+  }
+  if(parsedURL.search) {
+    path= path + parsedURL.search;
+  }
   let options = {
     method: 'GET',
     host: parsedURL.host,
     port: 443,
-    path: parsedURL.pathname + parsedURL.search,
+    path: path,
     headers: {
-      Accept: 'application/json'
+      Accept: 'application/json',
+      'User-Agent': process.env.mfw_package_name + '@' + process.env.mfw_package_version
     }
   };
   debug.debug("Options %O parsedURL %O ", options, parsedURL);
