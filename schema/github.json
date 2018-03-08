@@ -7,4 +7,5 @@
       "format": "alphanumeric",
       "description": "Code to get access Token."
     }
+  }
 }
