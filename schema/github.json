@@ -1,0 +1,10 @@
+{
+  "id": "/Auth",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "format": "alphanumeric",
+      "description": "Code to get access Token."
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "@microservice-framework/microservice-github-oauth",
+  "version": "1.0.0",
+  "description": "Microservice framework auth service.",
+  "main": "microservice-github-oauth.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --timeout 15000",
+    "start": "DEBUG=http:log,cluster:* node  --max-old-space-size=48 microservice-github-oauth.js",
+    "stop": "node kill.js",
+    "status": "node status.js",
+    "cs": "eslint --fix microservice-github-oauth.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microservice-framework/microservice-github-oauth.git"
+  },
+  "author": "Gormartsen",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/microservice-framework/microservice-github-oauth/issues"
+  },
+  "dependencies": {
+    "@microservice-framework/microservice": "^1.3.8",
+    "@microservice-framework/microservice-cluster": "^1.2.2",
+    "@microservice-framework/microservice-router-register": "^1.3.0",
+    "debug": "^2.6.3",
+    "dotenv": "^2.0.0"
+  },
+  "devDependencies": {
+    "@microservice-framework/microservice-client": "^1.3.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  },
+  "homepage": "https://github.com/microservice-framework/microservice-github-oauth#readme"
+}

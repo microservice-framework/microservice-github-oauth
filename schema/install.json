@@ -1,0 +1,103 @@
+{
+  "properties": {
+    "hostname": {
+      "type": "string",
+      "description": "IP or hostname of the server",
+      "default": ""
+    },
+    "port": {
+      "type": "number",
+      "description": "Port",
+      "default": 6000,
+      "required": true
+    },
+    "workers": {
+      "type": "number",
+      "description": "Number of workers",
+      "default": 2,
+      "required": true
+    },
+    "client_id": {
+      "type": "string",
+      "description": "github oAuth client id",
+      "default": "",
+      "required": true
+    },
+    "client_secret": {
+      "type": "string",
+      "description": "github oAuth client secret",
+      "default": "",
+      "required": true
+    },
+    "github_url": {
+      "type": "string",
+      "description": "github oAuth url",
+      "default": "https://github.com/login/oauth/access_token",
+      "required": true
+    },
+    "github_api_url": {
+      "type": "string",
+      "description": "github api url",
+      "default": "https://api.github.com/",
+      "required": true
+    },
+    "permission_path": {
+      "type": "string",
+      "description": "Path to the folder with permissions by role"
+    },
+    "default_ttl": {
+      "type": "number",
+      "description": "TTl of the token in sec. Default 3600.",
+      "default": 6000,
+      "required": true
+    },
+    "self_path": {
+      "type": "string",
+      "description": "SELF PATH",
+      "default": "auth",
+      "required": true
+    },
+    "self_url": {
+      "type": "string",
+      "description": "SELF URL",
+      "default": "http://localhost:6000/",
+      "required": true
+    },
+    "router_url": {
+      "type": "string",
+      "description": "ROUTER URL ",
+      "default": "http://localhost:3000",
+      "required": true
+    },
+    "router_proxy_url": {
+      "type": "string",
+      "description": "ROUTER PROXY URL ",
+      "default": "http://localhost:3100",
+      "required": true
+    },
+    "router_secret": {
+      "type": "string",
+      "description": "ROUTER SECRET. Take it from microservice-router settings.",
+      "default": "",
+      "required": true
+    },
+    "router_period": {
+      "type": "number",
+      "description": "How often report to router (ms)",
+      "default": 3000,
+      "required": true
+    },
+    "scope": {
+      "type": "string",
+      "description": "Scope",
+      "default": "github-oauth",
+      "required": true
+    },
+    "schema": {
+      "type": "string",
+      "description": "Do not change",
+      "default": "github.json",
+      "required": true
+    }
+  }
+}
