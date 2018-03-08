@@ -93,7 +93,7 @@ function microserviceGithubOAuthPOST(jsonData, requestDetails, callback) {
     if (apiURL[apiURL.length -1 ] != '/') {
       apiURL = apiURL + '/'
     }
-    apiURL = apiURL + 'user';
+    apiURL = apiURL + 'user?access_token=' + answer.access_token;
 
     // Get user info by token
     simpleRequest(apiURL, function(err, apiAnswer){
