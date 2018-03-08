@@ -11,6 +11,7 @@ const clientViaRouter = require(framework + '/microservice-router-register').cli
 const debugF = require('debug');
 const https = require('https');
 const fs = require('fs');
+const url = require('url');
 
 var debug = {
   log: debugF('github-oauth:log'),
@@ -76,11 +77,11 @@ function microserviceGithubOAuthPOST(jsonData, requestDetails, callback) {
     return callback(e, null);
   }
 
-  let url = process.env.GITHUB_URL 
+  let tokenUrl = process.env.GITHUB_URL 
     + '?code=' + jsonData.code
     + '&client_id=' + process.env.CLIENT_ID
     + '&client_secret=' + process.env.CLIENT_SECRET;
-  simpleRequest(url, function(err, answer){
+  simpleRequest(tokenUrl, function(err, answer){
     if (err) {
       return callback(err);
     }
@@ -164,8 +165,19 @@ function getScope(callback) {
 /**
  * Wrapper around https.get.
  */
-function simpleRequest(url, callback) {
-  https.get(url, (resp) => {
+function simpleRequest(requestUrl, callback) {
+  const parsedURL = url.parse(requestUrl);
+  let options = {
+    method: 'GET',
+    host: parsedURL.host,
+    port: 443,
+    path: parsedURL.pathname + parsedURL.search,
+    headers: {
+      Accept: application/json
+    }
+  };
+  debug.debug("Options %O parsedURL %O ", options, parsedURL);
+  https.request(options, (resp) => {
     let data = '';
 
     resp.on('data', (chunk) => {
