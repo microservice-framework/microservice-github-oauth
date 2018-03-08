@@ -78,8 +78,8 @@ function microserviceGithubOAuthPOST(jsonData, requestDetails, callback) {
 
   let url = process.env.GITHUB_URL 
     + '?code=' + jsonData.code
-    + '&client_id' + process.env.CLIENT_ID
-    + '&client_secret' + process.env.CLIENT_SECRET;
+    + '&client_id=' + process.env.CLIENT_ID
+    + '&client_secret=' + process.env.CLIENT_SECRET;
   simpleRequest(url, function(err, answer){
     if (err) {
       return callback(err);
