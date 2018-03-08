@@ -54,7 +54,7 @@
     "self_path": {
       "type": "string",
       "description": "SELF PATH",
-      "default": "github/register",
+      "default": "github/access_token",
       "required": true
     },
     "self_url": {
