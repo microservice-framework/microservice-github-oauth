@@ -186,6 +186,7 @@ function simpleRequest(requestUrl, callback) {
 
     resp.on('end', () => {
       try {
+        debug.debug("Data: %s", data);
         let answer = JSON.parse(data);
         callback(null, data);
       } catch (e) {
