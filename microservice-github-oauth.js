@@ -177,7 +177,7 @@ function simpleRequest(requestUrl, callback) {
     }
   };
   debug.debug("Options %O parsedURL %O ", options, parsedURL);
-  https.request(options, (resp) => {
+  const req = https.request(options, (resp) => {
     let data = '';
 
     resp.on('data', (chunk) => {
@@ -200,5 +200,6 @@ function simpleRequest(requestUrl, callback) {
     debug.log("request.error: %s", err.message);
     callback(err);
   });
+  req.end();
 }
 
